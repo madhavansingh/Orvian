@@ -60,7 +60,7 @@ It enables designers, engineers, and teams to **create, edit, animate, and colla
 - Docker (optional but recommended)  
 
 ### 1. Clone the Repository
-git clone https://github.com/your-username/orvian.git
+git clone https://github.com/madhavan-singh/orvian.git
 cd orvian
 
 ## 🚀 Getting Started
