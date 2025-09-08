@@ -61,7 +61,6 @@ It enables designers, engineers, and teams to **create, edit, animate, and colla
 
 ### 1. Clone the Repository
 git clone https://github.com/madhavan-singh/orvian.git
-cd orvian
 
 ## 🚀 Getting Started
 
