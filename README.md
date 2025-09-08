@@ -66,19 +66,27 @@ cd orvian
 ## 🚀 Getting Started
 
 ### Backend Setup
+```bash
 cd backend
-cp .env.example .env   # add your DB, Redis, S3 keys
+cp .env.example .env
 npm install
 npm run dev
+# add your DB, Redis, S3 keys
+```
 
 ### Frontend Setup
+```bash 
 cd frontend
-cp .env.example .env   # add backend API URL + WebSocket URL
+cp .env.example .env   
 npm install
 npm run dev
+# add backend API URL + WebSocket URL
+```
 
 ### Run with Docker (optional)
+```bash
 docker-compose up --build
+```
 
 ---
 
