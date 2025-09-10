@@ -1,5 +1,4 @@
-# 🌌 Orvian – 3D Design & Collaboration Platform (MVP)
-
+# 🌌 Orvian – 3D Design & Collaboration Platform
 Orvian is a **full-stack browser-based 3D design and collaboration platform** inspired by tools like Spline and Figma, but built with a distinct UI and interaction model.  
 It enables designers, engineers, and teams to **create, edit, animate, and collaborate on 3D scenes directly in the browser** — no heavy installs required.  
 
