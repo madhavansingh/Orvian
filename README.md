@@ -128,7 +128,7 @@ This project is licensed under the MIT License.
 
 ## 🎥 Demo
 
-🔗 [Live Demo]([https://orvian.app](https://orvian-3d.vercel.app/))  
+🔗 [Live Demo](https://orvian-3d.vercel.app/)  
 
 ---
 
