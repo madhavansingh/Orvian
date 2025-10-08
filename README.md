@@ -1,73 +1,139 @@
-# Welcome to your Lovable project
+# 🌌 Orvian – 3D Design & Collaboration Platform (MVP)
 
-## Project info
+Orvian is a **full-stack browser-based 3D design and collaboration platform** inspired by tools like Spline and Figma, but built with a distinct UI and interaction model.  
+It enables designers, engineers, and teams to **create, edit, animate, and collaborate on 3D scenes directly in the browser**  no heavy installs required.  
 
-**URL**: https://lovable.dev/projects/bcb21df5-987d-400c-ab17-317ed28945be
+---
 
-## How can I edit this code?
+## ✨ Features
 
-There are several ways of editing your application.
+### 🎨 Editor (Frontend)
+- Interactive **3D editor** built with **React + Three.js (react-three-fiber)**  
+- Basic primitives: cube, sphere, plane, cylinder  
+- Transform controls: move, rotate, scale, snap-to-grid  
+- Orbit / pan / zoom camera with perspective & orthographic toggle  
+- Grouping, hierarchy tree, copy/duplicate objects  
+- Materials: color, metalness, roughness, textures  
+- Scene export: `.json` and `.glTF`  
+- Undo/redo stack  
 
-**Use Lovable**
+### 🤝 Realtime Collaboration
+- Multi-user editing powered by **CRDTs (Y.js)**  
+- WebSocket / WebRTC sync engine  
+- Live cursors & selection highlights  
+- Comments & object-based threads  
+- Presence awareness (see who’s online & editing)  
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/bcb21df5-987d-400c-ab17-317ed28945be) and start prompting.
+### 🔐 Backend & Persistence
+- **Authentication & User Management** (JWT)  
+- **Project CRUD** (create, save, load, delete, clone)  
+- PostgreSQL + JSONB for scene storage  
+- Redis for presence & session cache  
+- Version history (save snapshots & rollbacks)  
+- Secure asset upload via S3 signed URLs  
 
-Changes made via Lovable will be committed automatically to this repo.
+### 🌍 Deployment
+- Frontend: React app deployed on **Vercel/Netlify**  
+- Backend: Node.js + PostgreSQL + Redis on **Render/AWS/GCP**  
+- Containerized with **Docker + docker-compose**  
+- HTTPS & CORS configured  
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠️ Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Frontend:** React, TypeScript, TailwindCSS, react-three-fiber, Zustand  
+- **3D Rendering:** Three.js, glTF loader, DRACO compression  
+- **Backend:** Node.js (Express), PostgreSQL, Redis, Y.js provider  
+- **Realtime:** WebSockets / WebRTC + CRDT sync  
+- **Storage:** AWS S3 (for assets & textures)  
+- **Deployment:** Docker, Vercel/Netlify, Render/AWS  
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🚀 Getting Started
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Prerequisites
+- Node.js >= 18  
+- PostgreSQL >= 14  
+- Redis >= 7  
+- Docker (optional but recommended)  
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 1. Clone the Repository
+git clone https://github.com/madhavan-singh/orvian.git
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## 🚀 Getting Started
+
+### Backend Setup
+```bash
+cd backend
+cp .env.example .env
+npm install
 npm run dev
+# add your DB, Redis, S3 keys
 ```
 
-**Edit a file directly in GitHub**
+### Frontend Setup
+```bash 
+cd frontend
+cp .env.example .env   
+npm install
+npm run dev
+# add backend API URL + WebSocket URL
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Run with Docker (optional)
+```bash
+docker-compose up --build
+```
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📅 Roadmap
 
-## What technologies are used for this project?
+- **Phase 1 (MVP):**  
+  - Core 3D editor (primitives, transforms, save/load)  
+  - User authentication & project CRUD  
+  - Scene export  
 
-This project is built with:
+- **Phase 2:**  
+  - Realtime collaboration (Y.js + WebSockets)  
+  - Presence & live cursors  
+  - Comments & chat  
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Phase 3:**  
+  - Asset library (models, materials, textures)  
+  - Versioning system  
+  - Performance optimization  
 
-## How can I deploy this project?
+- **Phase 4 (Advanced):**  
+  - Animation timeline  
+  - AI-assisted object generation (text → 3D mesh)  
+  - Embeddable viewer & public share links  
 
-Simply open [Lovable](https://lovable.dev/projects/bcb21df5-987d-400c-ab17-317ed28945be) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## 🧑‍💻 Contributing
 
-Yes, you can!
+Contributions are welcome! Please fork this repo, create a feature branch, and submit a PR.  
+Check out our **issues** tab for open tasks.  
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 📜 License
+
+This project is licensed under the MIT License.  
+
+---
+
+## 🎥 Demo & Screenshots
+
+🔗 [Live Demo](https://orvian.app) *(coming soon...)*  
+📸 Screenshots will be added after MVP launch.  
+
+---
+
+## 🙌 Acknowledgements
+- Inspired by **Spline** and **Figma**  
+- Built with **Three.js**, **React**, and **Y.js**  
+- Special thanks to the open-source community ❤️
