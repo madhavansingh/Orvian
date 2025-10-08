@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { useEditorStore, SceneObject as SceneObjectType } from '@/store/editorStore';
 import { Mesh } from 'three';
+import { SceneObjectGeometry } from './SceneObjectGeometry';
 
 interface SceneObjectProps {
   object: SceneObjectType;
@@ -20,48 +21,49 @@ const SceneObject = ({ object }: SceneObjectProps) => {
     selectObject(object.id);
   };
 
-  const renderGeometry = () => {
-    switch (object.type) {
-      case 'cube':
-        return <boxGeometry args={[1, 1, 1]} />;
-      case 'sphere':
-        return <sphereGeometry args={[0.5, 32, 32]} />;
-      case 'cylinder':
-        return <cylinderGeometry args={[0.5, 0.5, 1, 32]} />;
-      case 'plane':
-        return <planeGeometry args={[1, 1]} />;
-      default:
-        return <boxGeometry args={[1, 1, 1]} />;
-    }
-  };
+  // Don't render lights as meshes
+  if (object.category === 'light') {
+    return null;
+  }
+
+  // Handle special rendering for environment objects
+  const isCompositeObject = ['tree', 'chair'].includes(object.type);
 
   return (
-    <mesh
-      ref={meshRef}
+    <group
       position={object.position}
       rotation={object.rotation}
       scale={object.scale}
       onClick={handleClick}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
-      castShadow
-      receiveShadow
     >
-      {renderGeometry()}
-      <meshStandardMaterial
-        color={object.color}
-        metalness={object.metalness}
-        roughness={object.roughness}
-        emissive={isSelected ? '#8b5cf6' : hovered ? '#6366f1' : '#000000'}
-        emissiveIntensity={isSelected ? 0.3 : hovered ? 0.1 : 0}
-      />
-      {isSelected && (
+      {isCompositeObject ? (
+        // For composite objects, render the geometry directly
+        <SceneObjectGeometry type={object.type} />
+      ) : (
+        <mesh
+          ref={meshRef}
+          castShadow
+          receiveShadow
+        >
+          <SceneObjectGeometry type={object.type} />
+          <meshStandardMaterial
+            color={object.color}
+            metalness={object.metalness}
+            roughness={object.roughness}
+            emissive={isSelected ? '#8b5cf6' : hovered ? '#6366f1' : '#000000'}
+            emissiveIntensity={isSelected ? 0.3 : hovered ? 0.1 : 0}
+          />
+        </mesh>
+      )}
+      {isSelected && !isCompositeObject && (
         <lineSegments>
           <edgesGeometry args={[meshRef.current?.geometry!]} />
           <lineBasicMaterial color="#8b5cf6" linewidth={2} />
         </lineSegments>
       )}
-    </mesh>
+    </group>
   );
 };
 

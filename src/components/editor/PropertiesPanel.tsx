@@ -174,6 +174,25 @@ const PropertiesPanel = () => {
                 className="w-full"
               />
             </div>
+
+            {selectedObject.category === 'light' && (
+              <div className="space-y-2">
+                <div className="flex justify-between">
+                  <Label>Intensity</Label>
+                  <span className="text-xs text-muted-foreground">
+                    {(selectedObject.intensity || 1).toFixed(1)}x
+                  </span>
+                </div>
+                <Slider
+                  value={[selectedObject.intensity || 1]}
+                  onValueChange={([value]) => updateObject(selectedObject.id, { intensity: value })}
+                  min={0}
+                  max={5}
+                  step={0.1}
+                  className="w-full"
+                />
+              </div>
+            )}
           </div>
         </div>
       </ScrollArea>
