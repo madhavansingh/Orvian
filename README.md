@@ -126,10 +126,9 @@ This project is licensed under the MIT License.
 
 ---
 
-## 🎥 Demo & Screenshots
+## 🎥 Demo
 
-🔗 [Live Demo](https://orvian.app) *(coming soon...)*  
-📸 Screenshots will be added after MVP launch.  
+🔗 [Live Demo]([https://orvian.app](https://orvian-3d.vercel.app/))  
 
 ---
 
